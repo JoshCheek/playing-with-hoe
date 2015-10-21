@@ -1,14 +1,11 @@
 = myproj
 
-home  :: FIX (url)
-code  :: FIX (url)
-rdoc  :: FIX (url)
-bugs  :: FIX (url)
-... etc ...
+home  :: https://twitter.com/the_zenspider/status/656611159764635648
+code  :: https://github.com/JoshCheek/
 
 == DESCRIPTION:
 
-FIX (describe your package)
+Uses hoe's test task to see what the experience is like.
 
 == FEATURES/PROBLEMS:
 
