@@ -3,7 +3,7 @@ require "minitest/autorun"
 require "myproj"
 
 class TestMyproj < Minitest::Test
-  def test_sanity
-    flunk "write tests or I will kneecap you"
+  def test_version_matches_my_expectation
+    assert_equal '1.0.0', Myproj::VERSION
   end
 end
