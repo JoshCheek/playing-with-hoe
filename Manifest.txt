@@ -1,8 +1,6 @@
 .autotest
-History.txt
 Manifest.txt
 README.txt
 Rakefile
-bin/myproj
 lib/myproj.rb
 test/test_myproj.rb
