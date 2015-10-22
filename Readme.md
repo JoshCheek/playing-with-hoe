@@ -1,11 +1,14 @@
 First part is an overview of thoughts, musings, suggestions, contemplations.
+Culminates in a reasonably sized code experiment (in the [Rakefile](https://github.com/JoshCheek/playing-with-hoe/blob/master/Rakefile)),
+which shed some insight, but didn't specifically compel me to any certainty.
+
 Second part is a "document my attempt to use this", which has some value in that it shows with some amount of accuracy,
 how I attempt to make sense of a library. It's probably also good in that most of us don't get to see people attempt
 to use the things we make, so we're probably expecting something different than the reality. And lastly, it might
 have value in that it shows a certain set of procedures (namely how I use pry) that have worked well for me.
 
 
-## Part 1: attempting to gether my thoughts
+## Part 1: attempting to gather my thoughts
 
 * It would be super helpful to declare certain things loud and up front, b/c for someone coming in, who doesn't know how they work, it's really unclear where to start. In particular: `rake newb`. Maybe an explicit check for something like whether the gems have been isolated, and then emit a notice like "if this is your first time in the project, run `rake newb`" eg the way it warns about things like missing files.
 * Within the lib, making it clear that `Hoe.spec` is the entry point (I know it seems super obvious now, but I thought it was defining the gemspec, so i assumed `require "hoe"` must have some side-effect in there somewhere) There are a number of ways: you could just put that front-center in the readme, though I generally feel like documentation is for when you can't find a good way to make something obvious. You could rename it to something like `Hoe.define` or `Hoe.create` or `Hoe.configure`, though I dislike that one as it implies a singleton configuration object, which isn't accurate. Actually, my confusion was reasonable since `Hoe#spec` returns a Gem::Specification. If you dislike changing the name, then allowing me to see the wiring would have really helped me figure it out: `Hoe.spec('myproject', Rake.application) { ... }` this one change would immediately allow me to see it's the entry point, give me context into what Hoe does / how it works, and make me trust the lib more because it implies it's not going to go mess with the world in ways that I don't know about / expect (eg the same way I experience a sense of trust when I see a binary explicitly passing ARGV/$stdout/$stdin to the runner).
